@@ -1,0 +1,55 @@
+.inbox-page {
+    position: relative;
+    padding-top: 40px;
+    width: 80%;
+    margin-left: auto;
+  }
+  
+  .chat-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .chat-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .chat-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .chat-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .chat-details {
+    flex-grow: 1;
+  }
+  
+  .chat-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .chat-last-message {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .chat-with {
+    font-size: 12px;
+    color: #999;
+    margin: 0;
+  }
+  

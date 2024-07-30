@@ -1,0 +1,187 @@
+@media (max-width: 868px){
+    .searchBar{
+        padding: 1rem;
+        flex-direction: column;
+        width: 80%;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+    .logindiv{
+        left: 0rem;
+        width: 150px;
+    }
+    .heroSection{
+        width: 100%;
+        font-size: 0.8rem;
+        font-weight: bolder;
+        background-color: #1d366f;
+        background: #1d366f;
+        height: 70vh;
+    }
+    .headingText{
+        display:inline;
+    }
+    .leaving,.going,.date,.searchButton{
+        width: 100%;
+    }
+    .countProfile{
+        width: 87%;
+        justify-content: space-between;
+    }
+    .searchBar input{
+        border:1px solid #08c076;
+        width: 80%;
+        border-radius: 15px;
+    }
+    .searchButton button{
+        width: 100%;
+        border-radius: 10px;
+    }
+    .counterBox{
+        top: 147px;
+        width: 40%;
+        font-size: medium;
+    }
+    .mainSection2{
+        padding: 1rem;
+        width: 100%;
+        flex-direction: column;
+    }
+    .sections{
+        margin-top: 20px;
+        width: 80%;
+        height: 100%;
+    }
+    .mainSection3{
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+    }
+    .sectionImg{
+        width:80%;
+    }
+    .sectionText p{
+        width: 100%;
+    }
+    .sectionText{
+        width: 80%;
+        text-align: center;
+    }
+    .mainSection4{
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    .citySection{
+        flex-direction: column;
+        width: 100%;
+    }
+    .city{
+        width: 100%;
+    }
+    .helpGrid{
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
+    .footerContainer{
+        flex-direction: column;
+    }
+    .logo{
+        justify-content: center;
+        gap: 15px;
+    }
+    .footerLogo{
+        width: 80%;
+        margin-inline: auto;
+        text-align: start;
+    }
+    #language{
+        width: 100%;
+    }
+    .footerterms{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .srch-form{
+        top: 270px;
+    }
+    .text-head{
+        position: absolute;
+        bottom: 20px;
+    }
+    .form-container{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .publish-form-container{
+        height: 130vh;
+        width: 100%;
+    }
+    .form-header h1{
+        padding: 1rem 1rem;
+    }
+    .Publish-Form{
+        width: 100%;
+    }
+    .form-img{
+        width: 100%;
+        height: 250px;
+    }
+    .mainSectionn{
+        padding: 1rem;
+        width: 100%;
+        flex-direction: column;
+    }
+    .kirk-card{
+        top: 55px;
+
+    }
+    .kirk-card ul{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .kirk-card ul li{
+        padding: 1rem;
+    } 
+    .carousal{
+        flex-direction: column;
+    }
+    .photo-section{
+        width: 100%;
+        height: 450px;
+    }
+    .carousal-parent{
+        width: 100%;
+        padding: 1.5rem 0;
+    }
+    .carousel-section{
+        width: 80%;
+    margin-inline:auto;
+    }
+    .helpGrid1{
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
+    .loginheading{
+        font-size: 1rem;
+    }
+    .loginwrapper{
+        width: 100%;
+        padding: 1rem;
+    }
+    .loginlist{
+        width: 100%;
+    }
+    .loginlist ul {
+        width: 100%;
+    }
+    .loginlist ul li{
+        width: 100%;
+    }
+    .form-header{
+        top: 70px;
+    }
+    }

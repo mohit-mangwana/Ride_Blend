@@ -1,0 +1,65 @@
+.ride-bookings-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ride-bookings-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .no-bookings {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .bookings-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .booking-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .booking-item:last-child {
+    border-bottom: none;
+  }
+  
+  .actions {
+    margin-top: 10px;
+  }
+  
+  .confirm-btn,
+  .decline-btn {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .confirm-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .decline-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .confirm-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .decline-btn:hover {
+    background-color: #e53935;
+  }
+  

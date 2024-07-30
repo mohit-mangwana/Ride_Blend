@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Questrial&family=Roboto+Condensed&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;
+}
+
+:root {
+    --primary-color: #1d366f;
+    --secondary-color: #08c076
+  }
+  
+  .flex{
+      display: flex;
+      justify-content: space-between;
+      align-items: self-start;
+      gap: 5px;
+  }
+  
+  .padding{
+      padding: 1rem;
+  }
+
+.hide{
+    display: none;
+}
+/* main section 2 */
+
+.mainSection2{
+    width: 100%;
+    height: 100%;
+}
+
+.sections{
+    width: 30%;
+    height: 100%;
+}
+
+/* main section 2 */
+
+.mainSection2{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem 2rem;
+}
+
+.sections{
+    width: 30%;
+    height:150px;
+    font-weight: bolder;
+}
+
+.sections .iconColor{
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.sections h3{
+    margin-bottom: 5px;
+    font-weight: bolder;
+}
+
+.sections p{
+    color: hsla(189, 13%, 50%, 1);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+}
+
+.mainSection3{
+    width: 100%;
+    height: 70vh;
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 1rem;
+}
+
+.sectionImg{
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.sectionText{
+    width: 50%;
+
+}
+
+.sectionText p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 70%;
+}
+
+.sectionText button{
+    padding: 1rem;
+    background-color: white;
+    color: var(--primary-color);
+    font-weight: bolder;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    border:none;
+    transition: all 0.3s;
+    margin-bottom: 10px;
+}
+
+.sectionText button:hover{
+    color: var(--secondary-color);
+}
+
+/* Main section */
+
+.mainSection4{
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: end;
+}
+
+.mainSection4 button{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.mainSection4 p{
+    width: 100%;
+    text-align: center;
+}
+
+.mainSection4 .sectionText{
+    width:50%;
+    text-align: center;
+}
+
+/* goto Section */
+.gotoSection{
+    width: 100%;
+    margin:0 auto;
+    padding: 1rem;
+    background-color: var(--primary-color);
+}
+
+.wrapperClass{
+width: 90%;
+margin: 0 auto;
+}
+
+.gotoHeading{
+    font-size: 1.3rem;
+    color: white;
+}
+
+.citySection{
+    width: 100%;
+    justify-content: space-between;
+}
+
+.city{
+    width: 100%;
+    background-color: white;
+    padding:2rem;
+    font-size: 1.1rem;
+    justify-content: space-between;
+    /* gap: 150px; */
+    margin-inline: auto;
+    margin: 15px 5px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.city a{
+    color:black;
+    text-decoration: none;
+}
+
+.city .iconColor {
+    margin: 0 10px;
+}
+.lastLine a{
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.lastLine{
+    text-align: end;
+}
+
+/* grid section  */
+
+.helpCenter{
+    padding: 2rem;
+}
+
+.helpGrid{
+    display: grid;
+    grid-template-columns: 35% 35%;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    gap: 20px;
+}
+
+.helpheading{
+    margin: 10px auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.helpSection{
+    padding: 1rem;
+    border-bottom: 1px solid hsla(189, 13%, 50%, 1);
+}
+
+.helpGrid h4{
+font-weight: bolder;
+}
+.helpGrid p{
+margin-top: 10px;
+color: hsla(189, 13%, 50%, 1);
+font-weight: bold;
+letter-spacing: 1px;
+font-size: 0.9rem;
+}
+.hlepbtn{
+    width:100%;
+    text-align: center;
+    margin: 20px auto;
+}
+
+#helpbtn{
+    padding: 1rem;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 30px;
+    font-size: large;
+    cursor: pointer;
+    font-weight: bold;
+}

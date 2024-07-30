@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Questrial&family=Roboto+Condensed&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;
+}
+
+:root {
+    --primary-color: #1d366f;
+    --secondary-color: #08c076
+  }
+  
+  .flex{
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 5px;
+  }
+  
+  .padding{
+      padding: 1rem;
+  }
+
+.hide{
+    display: none;
+}
+
+
+.listitem{
+    text-align: start   ;
+    width: 200px;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.listitem a{
+    margin-top: 30px;
+    width: 100%;
+    text-decoration: none;
+    color: hsla(189, 13%, 50%, 1);
+    font-weight: bold;
+    padding: 0.2rem;
+}
+
+.listitem h3 {
+    width: 100%;
+}
+
+.listitems{
+    display: flex;
+    /* text-align: end; */
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.listitem .iconColor{
+    margin: 0 5px;
+}
+
+.footerContainer{
+    width: 100%;
+    padding: 2rem  0;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #ededed;
+}
+.language{
+    width: 100%;
+    flex-direction: column;
+    background-color: white;
+    text-align: start;
+    border-radius: 10px;
+    padding: 0.2rem;
+}
+
+.language span{
+    width: 100%;
+    font-size: small;
+    font-weight: bold;
+    color: hsla(189, 13%, 50%, 1);
+}
+.languages:focus{    border: none;
+    outline: none;
+}
+
+.languages{
+    font-size: 1.3rem;
+    width: 250px;
+    background-color: transparent;
+    border: none;
+}
+
+.language:focus,
+.language:focus-within {
+  outline: 1px solid black;
+}
+
+.logo {
+    font-size: 2.3rem;
+    margin-top: 2rem;
+    gap: 40px;
+}
+
+.overflow{
+    overflow-x: hidden;
+}
+
+
+.footerterms{
+    justify-content: space-around;
+    font-weight: bolder;
+    font-size: 1.1rem;
+}

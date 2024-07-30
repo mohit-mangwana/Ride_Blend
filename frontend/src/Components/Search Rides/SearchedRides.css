@@ -1,0 +1,168 @@
+.search-rides{
+    width: 100%;
+    position: relative;
+    top: 70px;
+    text-align: center;
+}
+
+
+.search-rides .rides{
+    width: 100%;
+    padding: 2rem;
+}
+
+
+.column{ 
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.profile-picture {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    object-fit: cover; /* Ensures the image covers the given width and height */
+    border-radius: 50%; /* Makes the image circular */
+  }
+
+
+  hr{
+    height: 20px;
+    width: 1px;
+    border: none;
+    background: #ccc;
+  }
+
+  .name-id{
+    gap: 15px;
+  }
+  
+/* .my-rides{
+    width: 80%;
+    position: relative;
+    top: 11%;
+    height: 89vh;
+    overflow: auto;
+    margin-left: auto;
+} */
+
+
+.rides-lists{
+    border: 2px solid transparent;
+    margin-top: 20px;
+    list-style: none;
+    width: 80%;
+    background-color: white;
+    /* padding: 1rem; */
+    border-radius: 20px;
+    box-shadow:  0 0 10px #ccc;
+    margin-inline: auto;
+}
+
+.location{
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: blue; */
+}
+
+.location h4{
+    padding: 0.1rem;
+}
+
+.line ,.line2{
+    position: relative;
+    height: 2px;
+    width: 50px ;
+    background-color: var(--secondary-color);
+    margin-inline:0.5rem ;
+}
+
+.line2::after{
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 10px;
+   right: -5px;
+   bottom: -4px;
+    border-radius: 50%;
+    background-color:var(--secondary-color);
+}
+
+.line::after{
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    bottom: -4px;
+   left: -4px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);;
+}
+
+.travel-section p{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+sup{
+    vertical-align: super;
+    font-size: small;
+}
+
+
+.rides-lists:hover{
+    cursor: pointer;
+   border: 2px solid var(--secondary-color);
+   transition: border-color ease 0.6s;
+}
+
+
+  .buttons{
+    margin-top: 20px;
+    width: 80%;
+    border: none;
+    padding: 0.7rem;
+    background-color: var(--secondary-color);
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.ride-edit-input{
+    width: 70%;
+    font-weight: bold;
+    padding: 0.2rem;
+    border-radius: 5px;
+}
+
+.div{
+    width: 100%;
+}
+
+
+@media(max-width:868px) {
+    .rides-lists{
+        width: 90%;
+        left: 5%;
+        /* gap: 20px; */
+    }
+    .my-rides{
+        width: 100%;
+    }
+    .buttons{
+        width: 80%;
+    }
+}
+
+@media (max-width: 868px) {
+    .search-rides  .rides{
+        width: 80%;
+        left: 10%;
+    }
+}

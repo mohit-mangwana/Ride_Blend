@@ -1,0 +1,46 @@
+.search-cont{
+    position:  relative;
+    height: 80vh;
+}
+
+.srch-form{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 300px;
+}
+
+.text-head{
+    /* height: 200px; */
+    text-align: center;
+    width: 100%;
+   position: absolute;
+   top: 200px;
+}
+
+.all-rides {
+width: 100%;
+text-align: center;
+}
+
+.all-rides button{
+    margin-bottom: 20px;
+    width: 20%;
+    border: none;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+@media (max-width: 868px){
+    .srch-form{
+        top: 150px;
+    }
+    .text-head{
+        top: 100px;
+    }
+}

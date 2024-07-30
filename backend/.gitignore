@@ -1,0 +1,29 @@
+node_modules
+.env# Ignore node_modules directory
+node_modules/
+
+# Ignore logs
+logs
+*.log
+npm-debug.log*
+
+# Ignore dependency lock files
+package-lock.json
+yarn.lock
+
+# Ignore environment variables
+.env
+
+# Ignore coverage directory
+coverage/
+
+# Ignore dist directory (if any)
+dist/
+
+# Ignore OS-specific files
+.DS_Store
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,22 @@
+.user-info-container{
+    width: 100%;
+    position: relative;
+    top: 100px;
+    color: #444444;
+
+}
+
+.user-info-card{
+max-width: 600px;
+margin-inline: auto;
+}
+
+.user-profile-pic{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.user-pro-name{
+    justify-content: flex-start;
+}

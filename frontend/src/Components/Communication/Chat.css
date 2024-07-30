@@ -1,0 +1,87 @@
+/* Chat.css */
+.chat-container {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  position: relative;
+  top: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+.message {
+  padding: 15px 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.message.sent {
+  background-color: #e0ffe0;
+  align-self: flex-end;
+  text-align: end;
+}
+
+.message.received {
+  background-color: #e0e0ff;
+  align-self: flex-start;
+}
+
+.message h4 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.message p {
+  margin: 0;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #666;
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+}
+
+.message-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.message-input textarea {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.send-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+  background-color: #0056b3;
+}

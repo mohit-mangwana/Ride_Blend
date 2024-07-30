@@ -1,0 +1,171 @@
+.publish-form-container{
+    height: 100vh;
+    width: 100%;
+}
+
+.form-header{
+    position: relative;
+    /* width: 20%; */
+    top: 100px;
+    text-align: center;
+}
+.form-container{
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #cccccc07;
+}
+
+.form-header h1{
+    padding: 1rem 5rem;
+}
+
+.Publish-Form{
+    width: 100%;
+    position: relative;
+    /* height: 350px; */
+    box-shadow: 0 0 4px 2px #ccc;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+} 
+
+.Publish-Form .searchButton {
+    width: 100%;
+}
+
+.Publish-Form input{
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 1rem;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    /* margin-top:20px ; */
+    outline: none;
+    
+}
+
+.Publish-Form .countProfile{
+   padding: 1rem 0;
+   position: relative;
+}
+
+.Publish-Form .counterBox{
+    position: absolute;
+    top: 245px;
+    left: 80px;
+    width: 70%;
+}
+
+.Publish-Form .save-money{
+   padding: 1rem;
+    width: 260px;
+    margin-inline: auto;
+    border-top: 1px solid #ccc;
+}
+
+.Publish-Form .searchButton button{
+    color: black;
+    border-radius: 20px;
+    /* margin-top: 1rem; */
+} 
+
+.price{
+    width: 100%;
+}
+
+.form-img{
+    background-image: url(https://blog.blablacar.com.ua/wp-content/uploads/2021/06/1_bmqwKhIedbrED0zwzlzEDw-1-scaled-e1623612108870.jpeg);
+    height: 350px;
+    width: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.publish-text-heading{
+    text-align: center;
+}
+
+.mainSectionn{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem 2rem;
+}
+
+.carousal{
+    width: 100%;
+    background-color: #08c076;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.photo-section{
+    width: 50%;
+    height: 384px;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-image: url('https://cdn.blablacar.com/kairos/assets/images/testimonials-581ea6f00383900d2199.webp');
+}
+
+.carousal-parent{
+    width: 50%;
+}
+
+.carousel-section{
+    width: 70%;
+    /* margin-inline:auto; */
+    background-color: white;
+    border-radius: 20px;
+}
+
+.slide{
+    padding: 2rem;
+}
+
+.kirk-card{
+    width: 100%;
+    position: relative;
+    top: 15px;
+    z-index: 2;
+}
+
+.kirk-card ul {
+background-color: white;
+list-style: none;
+justify-content: space-between;
+width: 80%;
+margin-inline:auto ;
+box-shadow: 0 0 20px #ccc;
+border-radius: 20px;
+padding: 1rem;
+}
+
+.helpGrid1{
+    display: grid;
+    grid-template-columns: 35% 35%;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    gap: 20px;
+}
+
+.helpGrid1 h4{
+    font-weight: bolder;
+    }
+
+    .helpGrid1 p{
+    margin-top: 10px;
+    color: hsla(189, 13%, 50%, 1);
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    }

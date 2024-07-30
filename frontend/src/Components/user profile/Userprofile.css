@@ -1,0 +1,157 @@
+.profile-container{
+    width: 100%;
+    }
+    
+    .parent-info-container{
+        width: 100%;
+        display: flex;
+        position: relative;
+        /* background-color: blue; */
+        /* height: 100vh; */
+    }
+    
+    .UserSideBar {
+        width: 20%; 
+        /* margin-right: 10px; */
+      }
+    
+    
+    .info-container{
+        width: 75%;
+        /* background-color: green; */
+        /* float: right; */
+        margin-left: auto;
+    }
+    /* 90561-77000 */
+    
+    
+    .profile-photo-upload{
+        margin-top: 130px;
+        width: 30%;
+        /* background-color: blue; */
+        text-align: center;
+    }
+    
+    .profile-photo-upload .buttons{
+       /* width: 30%; */
+       margin-top: 2px;
+       font-size: 0.8rem;
+    }
+    
+    .details{
+        /* background-color: green; */
+        margin-top: 130px;
+        width: 50%;
+    }
+    
+    .travel-preferences {
+        margin-top: 20px;
+      }
+      
+      .preference-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .preference-options button {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        cursor: pointer;
+      }
+      
+      .preference-options button.selected {
+        background-color: #007bff;
+        color: white;
+      }
+      
+      .sub-options {
+        margin-top: 20px;
+      }
+      
+      .sub-options label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      
+    
+    .pdetail{
+        margin-top: 10px;
+        /* font-weight: bold; */
+        color: #b4adad;
+        padding: 0.5rem;
+        margin-top: 15px;
+    }
+    
+    .margin{
+        width: 80%;
+        padding: 1rem;
+      margin: auto;
+      border-top: 2px solid #555;
+      margin-top: 20px;
+    }
+    
+    .user-details{
+        width: 80%;
+        margin: auto;
+        position: relative;
+        /* left: 10%; */
+        justify-content: space-around;
+        align-items:normal;
+    
+        /* top: 50%; */
+    }
+    
+    
+    .detail{
+        width: 80%;
+        padding: 1rem;
+        overflow: hidden;
+        box-shadow: 0 0 15px #cccccc93;
+        margin: 0px;
+        border-radius: 10px;
+    }
+    
+    .input{
+        width: 80%;
+        padding:1rem;
+        box-shadow: 0 0 15px #cccccc93;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.4rem;
+    /* margin-top: 10px; */
+    }
+    
+    .info-form div{
+        margin-top: 20px;
+    }
+    
+    .details h2{
+        margin-top: 15px;
+    }
+    
+    @media (max-width: 868px){
+        .info-container{
+            width: 100%;
+            /* background-color: green; */
+        }
+        .user-details{
+            width:100%;
+            flex-direction:column;
+        }
+        .details{
+            width:80%;
+            /* background-color: green; */
+            margin-inline:auto;
+            margin-top:0;
+        }
+        .detail{
+            width:100%;
+        }
+        .profile-photo-upload{
+            width:100%;
+        }
+    
+    }

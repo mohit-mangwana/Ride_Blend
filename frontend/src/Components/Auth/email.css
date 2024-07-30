@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainSection{
+    width: 100%;
+    min-height: 100vh;
+    /* position: relative;/ */
+}
+
+/* .loginButton{
+    display: none;
+} */
+
+.err{
+    color: red;
+}
+
+.emailwrapper{
+    /* min-height: 10vh; */
+    margin-top: 35px;
+    width: 50%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.emailheading{
+    font-size: 1.4rem;
+}
+
+.emailform input{
+    padding: 1rem;
+    width: 100%;
+    margin-top: 10px;
+    font-size: large;
+    border-radius: 10px;
+    background-color: #ededed;
+    border: 2px solid transparent;
+}
+
+
+.emailform input:focus{
+    border: 2px solid #1d366f;
+}
+
+
+
+.rememberme p{
+    width: 100%;
+    /* background-color: blue; */
+    font-size: large;
+}
+
+.rememberme input[type = "checkbox"]{
+    background-color: green;
+    width: 20px;
+    height: 20px;
+}
+.rememberme{
+   font-weight: bold;
+   margin-top: 9px;
+   padding: 0.5rem;
+   border-radius: 10px;
+}
+
+.rememberme:hover{
+    background-color: #ededed;
+}
+.forgotpass{
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.forgotpass a{
+    /* margin-top: 20px; */
+    text-decoration: none;
+    color: #1d366f;
+    font-weight: bold;
+}
+.forgotpass:hover{
+    background-color: #ededed;
+}
+.loginbtn{
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.loginbtn button{
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #1d366f;
+    font-weight: bold;
+    border: none;
+    color: rgb(8, 192, 118);
+    border-radius: 10px;
+}
