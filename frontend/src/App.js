@@ -22,7 +22,7 @@ import PublishRide from "./Components/Publish Rides/PublishRide";
 import ResetPassword from "./Components/Auth/ResetPassword";
 import SearchRide from "./Components/Search Rides/SearchRide";
 import SignUp from "./Components/Auth/Signup";
-import SignEmail from "./Components/Auth/Signupemail";
+import SignEmail from "./Components/Auth/Signupemail.jsx";
 import UserProfile from "./Components/user profile/UserProfile";
 import UserRides from "./Components/user profile/UserRides";
 import SearchResults from "./Components/Search Rides/SearchedRides";
