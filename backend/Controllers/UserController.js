@@ -7,46 +7,78 @@ import nodemailer from "nodemailer";
 
 
 export const signup = async (req, res) => {
-  const { name, email, password, phoneNumber ,role} = req.body;
+  const { name, email, password, phoneNumber, role } = req.body;
+
+  // Log incoming request data
+  console.log('Received signup request:', req.body);
+
+  // Default travel preferences
+  const defaultTravelPreferences = [
+    {
+      name: "Smoking",
+      option: "Non-smoking",
+      icon: "smoking-icon", // Adjust based on your icon setup
+    },
+    {
+      name: "Music",
+      option: "No preference",
+      icon: "music-icon", // Adjust based on your icon setup
+    },
+  ];
+
   try {
+    // Check for existing name
     const existingName = await UserModel.findOne({ name });
     if (existingName) {
       return res.status(401).json({ message: "User Name already exists" });
     }
+
+    // Check for existing email
     const existingUser = await UserModel.findOne({ email });
     if (existingUser) {
       return res.status(401).json({ message: "Email already exists" });
     }
 
+    // Check for existing phone number
     const existingNumber = await UserModel.findOne({ phoneNumber });
     if (existingNumber) {
       return res.status(401).json({ message: "Phone Number already exists" });
     }
 
+    // Hash the password
     const hashpassword = await bcrypt.hash(password, 10);
-    const newUser = await UserModel.create({
+    
+    // Create new user
+    const newUser = new UserModel({
       name: name,
       email: email,
       password: hashpassword,
       phoneNumber: phoneNumber,
       role: role,
+      travelPreferences: defaultTravelPreferences, // Set default travel preferences
     });
 
-    console.log( 
-      process.env.JWT_SECRET
-     
-    )
+    // Save the user to the database
+    await newUser.save();
+
+    // Generate JWT token
     const token = jwt.sign(
       { email: newUser.email, id: newUser._id },
-      process.env.JWT_SECRET
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' } // Add expiration time if needed
     );
+
+    // Send success response
     res.status(201).json({
       user: newUser,
       token: token,
-      message: "created successfully",
+      message: "User created successfully",
     });
+
   } catch (err) {
-    return res.status(500).json({ message: "Something went wrong", err });
+    // Log the error for debugging
+    console.error("Error creating user:", err);
+    return res.status(500).json({ message: "Something went wrong", error: err.message });
   }
 };
 
