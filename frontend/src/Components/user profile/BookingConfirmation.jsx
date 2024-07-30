@@ -24,6 +24,7 @@ import React, { useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { RideContext } from '../utils/RideProvider';
 
+
 const CheckCircleIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
