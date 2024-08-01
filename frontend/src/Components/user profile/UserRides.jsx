@@ -119,16 +119,16 @@ const UserProfile = () => {
 
   return (
     <>
+    <UserSideBar />
       <div className="user-ride-container">
         <div className="parent-rides-container">
-          <UserSideBar />
           <div className="my-rides">
             <h2>Your Rides</h2>
             <div className="rides">
               {loading ? (
                 <p>Loading...</p>
               ) : rides.length === 0 ? (
-                <p>No rides available</p>
+                <p style={{width:'70vw',height:'100vh',textAlign:'center',display:'flex',justifyContent:'center',alignItems:'center'}}>No rides available</p>
               ) : (
                 <ul>
                   {rides.map((ride) => (

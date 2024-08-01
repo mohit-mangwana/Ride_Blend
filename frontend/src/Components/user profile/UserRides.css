@@ -1,5 +1,6 @@
 .user-ride-container{
-    width: 100%;
+    width: 80%;
+    margin-left: auto;
     }
     
     .parent-rides-container{
@@ -7,4 +8,4 @@
         height: 100vh;
         display: flex;
     }
-    
+       

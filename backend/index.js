@@ -33,7 +33,7 @@ app.use("/notification", notificationRouter);
 app.use('/api', chatRoutes);
 
 const port = process.env.PORT || 5000;
-const dbConnectionString = process.env.DB_CONNECTION_STRING || 'your-default-db-connection-string';
+const dbConnectionString = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/';
 const secretKey = process.env.JWT_SECRET || 'your-default-secret-key';
 
 const server = createServer(app);

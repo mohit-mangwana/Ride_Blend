@@ -4,7 +4,6 @@ import { toast } from "react-hot-toast";
 import './RideBookings.css'
 import UserSideBar from './UserSideBar';
 
-
 const RideBookings = () => {
   const [bookings, setBookings] = useState([]);
   const [error, setError] = useState('');
@@ -21,7 +20,7 @@ const RideBookings = () => {
       toast.error("Error confirming booking.");
     }
   };
-  
+
   const declineBooking = async (bookingId) => {
     try {
       await axios.post(`/bookride/${bookingId}/decline`);
@@ -54,40 +53,42 @@ const RideBookings = () => {
     fetchBookings();
   }, []);
 
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  if (bookings.length === 0) {
-    return <div>No bookings available</div>;
-  }
-
   return (
-    <>
-    <UserSideBar></UserSideBar>
     <div className="ride-bookings-container">
-      <h2>Bookings for Your Rides</h2>
-      <ul className="bookings-list">
-        {bookings.map((booking) => (
-          <li key={booking._id} className="booking-item">
-            <div><strong>User:</strong> {booking.user.name}</div>
-            <div><strong>Seats Booked:</strong> {booking.seatsBooked}</div>
-            <div><strong>Status:</strong> {booking.status}</div>
-            <div><strong>Ride ID:</strong> {booking.ride._id}</div>
-            {booking.status === 'pending' && (
-              <div className="actions">
-                <button className="confirm-btn" onClick={() => confirmBooking(booking._id)}>Confirm</button>
-                <button className="decline-btn" onClick={() => declineBooking(booking._id)}>Decline</button>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
+      <UserSideBar />
+      {error ? (
+        <div>{error}</div>
+      ) : (
+        <>
+          {bookings.length === 0 ? (
+            <p style={{ width: '70vw', height: '100vh', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              No rides available
+            </p>
+          ) : (
+            <>
+              <h2>Bookings for Your Rides</h2>
+              <ul className="bookings-list">
+                {bookings.map((booking) => (
+                  <li key={booking._id} className="booking-item">
+                    <div><strong>User:</strong> {booking.user.name}</div>
+                    <div><strong>Seats Booked:</strong> {booking.seatsBooked}</div>
+                    <div><strong>Status:</strong> {booking.status}</div>
+                    <div><strong>Ride ID:</strong> {booking.ride._id}</div>
+                    {booking.status === 'pending' && (
+                      <div className="actions">
+                        <button className="confirm-btn" onClick={() => confirmBooking(booking._id)}>Confirm</button>
+                        <button className="decline-btn" onClick={() => declineBooking(booking._id)}>Decline</button>
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </>
+      )}
     </div>
-    </>
   );
 };
-
-
 
 export default RideBookings;
