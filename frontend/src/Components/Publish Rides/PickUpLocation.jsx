@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RideContext } from '../utils/RideProvider';
 import OpenStreetMapComponent from '../utils/OpenStreetMapComponent';
+import toast from 'react-hot-toast';
+
 
 const PickupLocation = () => {
   const { rideDetails, setRideDetails } = useContext(RideContext);
@@ -49,8 +51,9 @@ const PickupLocation = () => {
   };
 
   const handleContinue = () => {
-    if (!pickupLocation.lat || !pickupLocation.lng) {
+    if (!pickupAddress) {
       setError('Please select a valid pickup location');
+      toast.error('Please select a valid location');
       return;
     }
     navigate(isReturnRide ? '/offerseat/return-arrival' : '/offerseat/arrival');

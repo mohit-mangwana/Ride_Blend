@@ -1,4 +1,5 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { Helmet } from 'react-helmet';
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { Toaster } from "react-hot-toast";
@@ -148,227 +149,522 @@ function App() {
           />
         )}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search-ride" element={<SearchRide />} />
-          <Route path="/offerseat" element={<PublishRide />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/loginemail" element={<Email />} />
-          <Route path="/signupemail" element={<SignEmail />} />
-          <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route path="/resetpassword/:token" element={<ResetPassword />} />
-          <Route path="/ride-detail/:rideId" element={<RideDetails />} />
-          <Route path="/user-info/:userId" element={<UserInfo />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Helmet>
+                  <title>Home</title>
+                </Helmet>
+                <Home />
+              </>
+            }
+          />
+          <Route
+            path="/search-ride"
+            element={
+              <>
+                <Helmet>
+                  <title>Search Ride</title>
+                </Helmet>
+                <SearchRide />
+              </>
+            }
+          />
+          <Route
+            path="/offerseat"
+            element={
+              <>
+                <Helmet>
+                  <title>Publish Ride</title>
+                </Helmet>
+                <PublishRide />
+              </>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <>
+                <Helmet>
+                  <title>Login</title>
+                </Helmet>
+                <Login />
+              </>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <>
+                <Helmet>
+                  <title>Sign Up</title>
+                </Helmet>
+                <SignUp />
+              </>
+            }
+          />
+          <Route
+            path="/loginemail"
+            element={
+              <>
+                <Helmet>
+                  <title>Login with Email</title>
+                </Helmet>
+                <Email />
+              </>
+            }
+          />
+          <Route
+            path="/signupemail"
+            element={
+              <>
+                <Helmet>
+                  <title>Sign Up with Email</title>
+                </Helmet>
+                <SignEmail />
+              </>
+            }
+          />
+          <Route
+            path="/forgotpassword"
+            element={
+              <>
+                <Helmet>
+                  <title>Forgot Password</title>
+                </Helmet>
+                <ForgotPassword />
+              </>
+            }
+          />
+          <Route
+            path="/resetpassword/:token"
+            element={
+              <>
+                <Helmet>
+                  <title>Reset Password</title>
+                </Helmet>
+                <ResetPassword />
+              </>
+            }
+          />
+          <Route
+            path="/user-info/:userId"
+            element={
+              <>
+                <Helmet>
+                  <title>User Info</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <UserInfo />
+                </ProtectedRoute>
+              </>
+            }
+          />
+          <Route
+            path="/ride-detail/:rideId"
+            element={
+              <>
+                <Helmet>
+                  <title>Ride Details</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <RideDetails />
+                </ProtectedRoute>
+              </>
+            }
+          />
           <Route
             path="/checkout"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <Checkout />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Checkout</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <Checkout />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/editprofile"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <EditProfile />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Edit Profile</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <EditProfile />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/userprofile"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <UserProfile isSidebarVisible={isResponsive} />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>User Profile</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <UserProfile isSidebarVisible={isResponsive} />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/userride"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <UserRides />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>User Rides</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <UserRides />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/booked-rides"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <UserBookedRides />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Booked Rides</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <UserBookedRides />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/my-booked-rides"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <RideBookings />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>My Booked Rides</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <RideBookings />
+                </ProtectedRoute>
+              </>
             }
           />
-          <Route path="/search-results" element={<SearchResults />} />
+          <Route
+            path="/search-results"
+            element={
+              <>
+                <Helmet>
+                  <title>Search Results</title>
+                </Helmet>
+                <SearchResults />
+              </>
+            }
+          />
           <Route
             path="/offerseat/depature"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <PickupLocation />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Pickup Location</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <PickupLocation />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/arrival"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <DropLocation />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Drop Location</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <DropLocation />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/selectroute"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation']}>
-                <SelectRoute />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Select Route</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation']}>
+                  <SelectRoute />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/date"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation']}>
-                <DateTimePicker isReturnRide={false} />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Select Date</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation']}>
+                  <DateTimePicker isReturnRide={false} />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/passengers"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date']}>
-                <PassengerCount isReturnRide={false} />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Passenger Count</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date']}>
+                  <PassengerCount isReturnRide={false} />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/bookoption"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers']}>
-                <BookingOption isReturnRide={false} />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Booking Option</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers']}>
+                  <BookingOption isReturnRide={false} />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/price"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers', 'bookingOption']}>
-                <Price isReturnRide={false} />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Price</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers', 'bookingOption']}>
+                  <Price isReturnRide={false} />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/return-trip"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers', 'bookingOption', 'price']}>
-                <ReturnTrip />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Return Trip</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers', 'bookingOption', 'price']}>
+                  <ReturnTrip />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/confirmation"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers', 'bookingOption', 'price']}>
-                <Confirmation />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Confirmation</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers', 'bookingOption', 'price']}>
+                  <Confirmation />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/published"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <BookingConfirmation />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Booking Confirmation</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <BookingConfirmation />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/return-route"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation']}>
-                <SelectRoute />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Return Route</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation']}>
+                  <SelectRoute />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/return-date"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation']}>
-                <DateTimePicker isReturnRide={true} />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Return Date</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation']}>
+                  <DateTimePicker isReturnRide={true} />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/return-passengers"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date']}>
-                <PassengerCount isReturnRide={true} />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Return Passengers</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date']}>
+                  <PassengerCount isReturnRide={true} />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/return-bookoption"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers', 'bookingOption']}>
-                <BookingOption isReturnRide={true} />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Return Booking Option</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers', 'bookingOption']}>
+                  <BookingOption isReturnRide={true} />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/offerseat/return-price"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers', 'bookingOption']}>
-                <Price isReturnRide={true} />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Return Price</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} requiredFields={['pickupLocation', 'dropLocation', 'date', 'passengers', 'bookingOption']}>
+                  <Price isReturnRide={true} />
+                </ProtectedRoute>
+              </>
             }
           />
-          <Route path="/adminlogin" element={<AdminLogin />} />
-          <Route path="/adminsignup" element={<AdminSignup />} />
+          <Route
+            path="/adminlogin"
+            element={
+              <>
+                <Helmet>
+                  <title>Admin Login</title>
+                </Helmet>
+                <AdminLogin />
+              </>
+            }
+          />
+          <Route
+            path="/adminsignup"
+            element={
+              <>
+                <Helmet>
+                  <title>Admin Sign Up</title>
+                </Helmet>
+                <AdminSignup />
+              </>
+            }
+          />
           <Route
             path="/admindashboard"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin} adminOnly={true}>
-                <AdminDashBoard />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Admin Dashboard</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin} adminOnly={true}>
+                  <AdminDashBoard />
+                </ProtectedRoute>
+              </>
             }
           />
-          <Route path="/admin/rides" element={<AdminRides />} />
-          <Route path="/admin/bookings" element={<BookedRides />} />
-          <Route path="/admin/users" element={<AdminUser />} />
-         
-         {/* Notifications and Inbox */}
-         <Route
+          <Route
+            path="/admin/rides"
+            element={
+              <>
+                <Helmet>
+                  <title>Admin Rides</title>
+                </Helmet>
+                <AdminRides />
+              </>
+            }
+          />
+          <Route
+            path="/admin/bookings"
+            element={
+              <>
+                <Helmet>
+                  <title>Admin Bookings</title>
+                </Helmet>
+                <BookedRides />
+              </>
+            }
+          />
+          <Route
+            path="/admin/users"
+            element={
+              <>
+                <Helmet>
+                  <title>Admin Users</title>
+                </Helmet>
+                <AdminUser />
+              </>
+            }
+          />
+          <Route
             path="/notifications"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <Notifications />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Notifications</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <Notifications />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/inbox"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <Inbox />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Inbox</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <Inbox />
+                </ProtectedRoute>
+              </>
             }
           />
           <Route
             path="/chat/:rideId"
             element={
-              <ProtectedRoute token={token} isAdmin={isAdmin}>
-                <Chat />
-              </ProtectedRoute>
+              <>
+                <Helmet>
+                  <title>Chat</title>
+                </Helmet>
+                <ProtectedRoute token={token} isAdmin={isAdmin}>
+                  <Chat />
+                </ProtectedRoute>
+              </>
             }
           />
-
-          {/* Catch-all route for unmatched paths */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </RideProvider>

@@ -7,7 +7,6 @@ const DatePicker = ({ isReturnRide }) => {
   const { rideDetails, setRideDetails } = useContext(RideContext);
   const rideType = isReturnRide ? 'returnRide' : 'outboundRide';
 
-  // Initialize date and time states based on existing ride details or defaults
   const initialDate = rideDetails[rideType]?.date ? new Date(rideDetails[rideType].date).toISOString().split('T')[0] : '';
   const initialTime = rideDetails[rideType]?.time || '';
 
@@ -15,7 +14,6 @@ const DatePicker = ({ isReturnRide }) => {
   const [time, setTime] = useState(initialTime);
   const navigate = useNavigate();
 
-  // Effect to update date state based on rideDetails changes
   useEffect(() => {
     setDate(initialDate);
     setTime(initialTime);
@@ -24,35 +22,32 @@ const DatePicker = ({ isReturnRide }) => {
   const handleContinue = () => {
     if (!date || !time) {
       toast.error('Please select both date and time');
-      return;
+      return; // Prevent further execution if date or time is missing
     }
 
     setRideDetails(prevDetails => ({
       ...prevDetails,
       [rideType]: {
         ...prevDetails[rideType],
-        date: new Date(date).toISOString(), // Store as ISO string in rideDetails
-        time: time, // Store time separately in rideDetails
+        date: new Date(date).toISOString(),
+        time: time,
       },
     }));
     
     navigate(isReturnRide ? '/offerseat/return-passengers' : '/offerseat/passengers');
   };
 
-  // Calculate minimum date and time
-  const minDate = new Date().toISOString().split('T')[0]; // Today's date
+  const minDate = new Date().toISOString().split('T')[0];
   const minTime = date === minDate ? new Date().toISOString().split('T')[1].substring(0, 5) : "00:00";
 
-  // Validate return ride date against outbound ride date
   const isDateValid = (selectedDate) => {
-    if (!rideDetails.outboundRide?.date) return true; // No outbound ride date set yet
+    if (!rideDetails.outboundRide?.date) return true;
     const outboundDate = new Date(rideDetails.outboundRide.date);
     const selectedDateTime = new Date(`${selectedDate}T${time}`);
     return selectedDateTime >= outboundDate;
   };
 
-  // Disable continue button if date is invalid
-  const isContinueDisabled = !date || !time || !isDateValid(date);
+  // const isContinueDisabled = !date || !time || !isDateValid(date);
 
   return (
     <div style={styles.container}>
@@ -71,7 +66,7 @@ const DatePicker = ({ isReturnRide }) => {
         onChange={(e) => setTime(e.target.value)}
         style={styles.input}
       />
-      <button onClick={handleContinue} style={styles.button} disabled={isContinueDisabled}>Continue</button>
+      <button onClick={handleContinue} style={styles.button} >Continue</button>
       {!isDateValid(date) && (
         <p style={styles.errorMsg}>Return date cannot be earlier than outbound date ({rideDetails.outboundRide?.date})</p>
       )}

@@ -11,8 +11,9 @@ import {
   faSmokingBan,
   faDog,
 } from "@fortawesome/free-solid-svg-icons";
-
+import { Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Button, Box, TextField } from '@mui/material';
 export default function UserProfile() {
+  const [isFormVisible, setFormVisible] = useState(false);
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [profilePhoto, setProfilePhoto] = useState(null);
@@ -69,6 +70,10 @@ export default function UserProfile() {
     },
   ]);
 
+  const toggleFormVisibility = () => {
+    setFormVisible(!isFormVisible);
+  };
+
   const [selectedPreferences, setSelectedPreferences] = useState([]);
 
 
@@ -84,6 +89,9 @@ export default function UserProfile() {
       setUserData(response.data);
       // console.log(userData.travelPreferences);
       setBio(response.data.bio || "");
+      if (response.data.travelPreferences) {
+        setSelectedPreferences(response.data.travelPreferences);
+      }
       if (response.data.vehicles) {
         setVehicleData(response.data.vehicles);
       }
@@ -274,6 +282,16 @@ export default function UserProfile() {
     }
   };
 
+  const fetchTravelPreferences = async () => {
+    try {
+      const response = await axios.get('/auth/travel-preferences', { withCredentials: true });
+      setTravelPreferences(response.data.preferences);
+      setSelectedPreferences(response.data.selectedPreferences);
+    } catch (error) {
+      console.error('Error fetching travel preferences:', error);
+    }
+  };
+
   const handleVehicleInputChange = (e) => {
     const { name, value } = e.target;
     setVehicleData({ ...vehicleData, [name]: value });
@@ -457,27 +475,72 @@ export default function UserProfile() {
             )}
           </div>
           <div className="travel-preferences margin">
-      <h2>Select Your Travel Preferences</h2>
-      {travelPreferences.map(preference => (
-        <div key={preference.name} className="preference">
-          <h3>{preference.name}</h3>
-          {preference.options.map(option => (
-            <label key={option}>
-              <input
-                type="radio"
-                name={preference.name}
-                value={option}
-                checked={selectedPreferences.some(pref => pref.name === preference.name && pref.option === option)}
-                onChange={() => handlePreferenceChange(preference.name, option)}
-              />
-              {option}
-            </label>
-          ))}
-        </div>
-      ))}
-      <button onClick={updateTravelPreferences}>Save Preferences</button>
-    </div>
+      {isLoading ? (
+        <Typography variant="h4" component="h2">
+          Loading...
+        </Typography>
+      ) : (
+        <>
+          <Typography variant="h4" component="h2">
+            Travel Preferences
+          </Typography>
 
+          {selectedPreferences.length > 0 ? (
+            <Box marginBottom={2}>
+              {selectedPreferences.map(pref => (
+                <Typography key={pref.name} variant="body1">
+                  {pref.name}: {pref.option}
+                </Typography>
+              ))}
+              <Button variant="contained" color="primary" onClick={toggleFormVisibility}>
+                {isFormVisible ? 'Hide Preferences' : 'Edit Preferences'}
+              </Button>
+            </Box>
+          ) : (
+            <Typography variant="body1" onClick={toggleFormVisibility} className="pdetail">
+              <FontAwesomeIcon className="iconColor" icon="fa-solid fa-circle-plus" />
+              Add Your Travel Preferences
+            </Typography>
+          )}
+
+          {isFormVisible && (
+            <Box marginTop={2}>
+              {travelPreferences.map(preference => (
+                <FormControl component="fieldset" key={preference.name} className="preference">
+                  <FormLabel component="legend">
+                    <Typography variant="h6" component="h3">
+                      {preference.name}
+                    </Typography>
+                  </FormLabel>
+                  <RadioGroup
+                    name={preference.name}
+                    value={
+                      selectedPreferences.find(pref => pref.name === preference.name)?.option || ''
+                    }
+                    onChange={(e) => handlePreferenceChange(preference.name, e.target.value)}
+                  >
+                    {preference.options.map(option => (
+                      <FormControlLabel
+                        key={option}
+                        value={option}
+                        control={<Radio />}
+                        label={option}
+                      />
+                    ))}
+                  </RadioGroup>
+                </FormControl>
+              ))}
+              <Button variant="contained" color="secondary" onClick={updateTravelPreferences}>
+                Save Preferences
+              </Button>
+              <Button variant="contained" onClick={toggleFormVisibility}>
+                Cancel
+              </Button>
+            </Box>
+          )}
+        </>
+      )}
+    </div>
           <div className="vehicle-in margin">
             <h1>Vehicles</h1>
             {userData.vehicles && userData.vehicles.length > 0 ? (

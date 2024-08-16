@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RideContext } from '../utils/RideProvider';
 import OpenStreetMapComponent from '../utils/OpenStreetMapComponent';
+import toast from 'react-hot-toast';
+
 
 const DropLocation = () => {
     const { rideDetails, setRideDetails } = useContext(RideContext);
@@ -52,8 +54,9 @@ const DropLocation = () => {
     };
 
     const handleContinue = () => {
-        if (!dropLocation.lat || !dropLocation.lng) {
+        if (!dropAddress) {
             setError('Please select a valid drop-off location');
+            toast.error("Please select a valid drop-off location")
             return;
         }
         navigate(isReturnRide ? '/offerseat/return/selectroute' : '/offerseat/selectroute'); // Adjust this path as needed

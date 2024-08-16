@@ -33,7 +33,7 @@ UserRouter.post("/resetpassword/:token", resetPassword);
 
 UserRouter.get("/user", verifyToken, findUser);
 
-UserRouter.get("/info/:userId", verifyToken, getUserInfo);
+UserRouter.get("/info/:userId", getUserInfo);
 
 UserRouter.post("/logout", logout);
 
@@ -46,6 +46,8 @@ UserRouter.post("/vehicle", verifyToken, addVehicle);
 UserRouter.post("/bio", verifyToken, addOrUpdateBio);
 
 UserRouter.post("/travel-preferences", verifyToken, updateTravelPreferences);
+
+
 
 
 

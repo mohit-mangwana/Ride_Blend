@@ -49,8 +49,7 @@ const BookedRidesPage = () => {
           <div className="rides">
             <ul>
               {bookedRides.length === 0?
-               <p>No Ride Booked</p>
-               
+     <p style={{width:'90vw',height:'100vh',textAlign:'center',display:'flex',justifyContent:'center',alignItems:'center'}}>No rides available</p>
                 :
                 <ul>
                {bookedRides.map((ride, index) => (
