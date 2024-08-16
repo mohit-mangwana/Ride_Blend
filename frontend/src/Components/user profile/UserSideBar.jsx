@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link,NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Sidebar.css";
 import axios from "axios";
@@ -26,34 +26,34 @@ export default function UserSideBar({ isSidebarVisible, setIsSidebarVisible, tog
   return (
     <div className={`side-container ${isSidebarVisible && "visible"}`} ref={sidebarRef}>
       <div className="side-bar flex">
-        <Link className="side menu-item" to="/userprofile">
+        <NavLink className="side menu-item" to="/userprofile">
           Profile
           <FontAwesomeIcon className="iconColor" icon="fa-solid fa-user" />
-        </Link>
-        <Link to="/userride" className="side menu-item">
+        </NavLink>
+        <NavLink to="/userride" className="side menu-item">
           My Rides
           <FontAwesomeIcon icon="fa-solid fa-car" />
-        </Link>
-        <Link className="side menu-item" to="/booked-rides">
+        </NavLink>
+        <NavLink className="side menu-item" to="/booked-rides">
           My Bookings
           <FontAwesomeIcon icon="fa-solid fa-car-side" />
-        </Link>
-        <Link className="side menu-item" to="/my-booked-rides">
+        </NavLink>
+        <NavLink className="side menu-item" to="/my-booked-rides">
           My Booked Ride
           <FontAwesomeIcon icon="fa-solid fa-car-side" />
-        </Link>
-        <Link className="side menu-item" to="/editprofile">
+        </NavLink>
+        <NavLink className="side menu-item" to="/editprofile">
           Edit Profile
           <FontAwesomeIcon icon="fa-solid fa-user-pen" />
-        </Link>
-        <Link className="side menu-item" to="/notifications">
+        </NavLink>
+        <NavLink className="side menu-item" to="/notifications">
           Notifications
           <FontAwesomeIcon icon="fa-solid fa-bell" />
-        </Link>
-        <Link className="side menu-item" to="/inbox">
+        </NavLink>
+        <NavLink className="side menu-item" to="/inbox">
           Inbox
           <FontAwesomeIcon icon="fa-solid fa-envelope" />
-        </Link>
+        </NavLink>
         <Link onClick={handleLogout} className="side menu-item">
           Log Out
           <FontAwesomeIcon icon="fa-solid fa-right-from-bracket" />

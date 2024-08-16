@@ -200,9 +200,9 @@ export const findUser = async (req, res) => {
 };
 
 export const getUserInfo = async (req, res) => {
-   try {
-    const emailFromToken = req.userEmail; // Access userEmail from req object
-    const user = await UserModel.findOne({ email: emailFromToken });
+  try {
+    const { userId } = req.params; // Access userId from request parameters
+    const user = await UserModel.findById(userId);
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });

@@ -157,7 +157,19 @@ export const editRide = async (req, res) => {
   const updatedRideData = req.body;
 
   try {
-    const updatedRide = await RideModel.findByIdAndUpdate(rideId, updatedRideData, { new: true });
+    // Use dot notation to update nested fields within rideDetails
+    const updatedRide = await RideModel.findByIdAndUpdate(
+      rideId,
+      {
+        $set: {
+          'rideDetails.date': updatedRideData.date,
+          'rideDetails.time': updatedRideData.time,
+          'rideDetails.passengers': updatedRideData.passengers,
+          'rideDetails.price': updatedRideData.price,
+        },
+      },
+      { new: true }
+    );
 
     if (!updatedRide) {
       return res.status(404).json({ message: "Ride not found" });
@@ -168,6 +180,7 @@ export const editRide = async (req, res) => {
     res.status(500).json({ message: "Error updating ride", error });
   }
 };
+
 
 export const getRideById = async (req, res) => {
   const { rideId } = req.params;

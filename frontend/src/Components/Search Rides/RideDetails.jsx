@@ -31,6 +31,7 @@ const RideDetails = () => {
     }
   }, [rideId]);
 
+
   if (!ride) {
     return <div className="loading">Loading...</div>;
   }
@@ -124,7 +125,7 @@ const RideDetails = () => {
               </div>
             </div>
             <hr className="line-hr" />
-            <div className="pass-div">
+            <div className="passs-div">
               <h4>Total Price for {passengers} Passenger:</h4>
                           <p>
               <FontAwesomeIcon icon="fa-solid fa-indian-rupee-sign" />

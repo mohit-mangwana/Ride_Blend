@@ -26,6 +26,7 @@ const UserInfo = () => {
     }
   }, [userId]);
 
+
   if (!user) {
     return <div>Loading...</div>;
   }

@@ -29,31 +29,6 @@ const SearchResults = () => {
 
   axios.defaults.withCredentials = true;
 
-  // const bookRide = async (rideId, passengers) => {
-  //   if (tokenToSend) {
-  //     try {
-  //       const response = await axios.post(
-  //         "/bookride/booking",
-  //         {
-  //           rideId: rideId,
-  //           seatsBooked: passengers,
-  //         }
-  //       );
-  //       if (response.data.error) {
-  //         toast.error(response.data.error);
-  //         return;
-  //       }
-  //       toast.success(response.data.message);
-  //       navigate("/booked-rides");
-  //     } catch (error) {
-  //       console.log("Error booking ride:", error);
-  //       toast.error(error.response.data.error);
-  //     }
-  //   } else {
-  //     toast.error("Please Login First");
-  //   }
-  // };
-
   const extractCityName = (address) => {
     const parts = address.split(", ");
     if (parts.length > 1) {

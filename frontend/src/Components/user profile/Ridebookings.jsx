@@ -10,7 +10,9 @@ const RideBookings = () => {
 
   const confirmBooking = async (bookingId) => {
     try {
-      await axios.post(`/${bookingId}/confirm`);
+      await axios.post(`/bookride/${bookingId}/confirm`, {}, {
+        withCredentials: true
+      });
       setBookings(bookings.map(booking =>
         booking._id === bookingId ? { ...booking, status: 'confirmed' } : booking
       ));
@@ -20,7 +22,7 @@ const RideBookings = () => {
       toast.error("Error confirming booking.");
     }
   };
-
+  
   const declineBooking = async (bookingId) => {
     try {
       await axios.post(`/bookride/${bookingId}/decline`);
@@ -40,6 +42,7 @@ const RideBookings = () => {
         const response = await axios.get('/bookride/bookings', { withCredentials: true });
         if (Array.isArray(response.data)) {
           setBookings(response.data);
+          console.log(response.data);
         } else {
           console.error("Unexpected response format:", response.data);
           setError("Unexpected response format from server.");

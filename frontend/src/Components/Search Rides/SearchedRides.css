@@ -147,6 +147,9 @@ sup{
 
 
 @media(max-width:868px) {
+    .search-rides{
+        width: 100%;
+    }
     .rides-lists{
         width: 90%;
         left: 5%;
@@ -158,11 +161,20 @@ sup{
     .buttons{
         width: 80%;
     }
+    .location{
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
 }
 
 @media (max-width: 868px) {
     .search-rides  .rides{
-        width: 80%;
-        left: 10%;
+        width: 100%;
+        /* left: 10%; */
     }
 }

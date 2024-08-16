@@ -78,9 +78,9 @@ export default function EditProfile() {
     return <div>Loading...</div>;
   }
 
-  return (
-    <div className="edit-parent">
+  return (<>
       <UserSideBar />
+    <div className="edit-parent">
       <div className="edit-profile-container">
         <h2>Edit Profile</h2>
         <form onSubmit={handleSubmit} className="edit-profile-form">
@@ -140,5 +140,6 @@ export default function EditProfile() {
         </form>
       </div>
     </div>
+    </>
   );
 }

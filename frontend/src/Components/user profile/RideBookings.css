@@ -5,7 +5,8 @@
   
   .ride-bookings-container h2 {
     text-align: center;
-    margin-bottom: 20px;
+    position: relative;
+    top: 100px;   
   }
   
   .no-bookings {
@@ -15,13 +16,20 @@
   }
   
   .bookings-list {
+    position: relative;
+    top: 150px;
+    width: 80%;
+    margin-left: auto;
     list-style: none;
     padding: 0;
   }
   
   .booking-item {
+    width: 80%;
     padding: 15px;
     border-bottom: 1px solid #ddd;
+    margin-inline: auto;
+    /* background-color: pink; */
   }
   
   .booking-item:last-child {

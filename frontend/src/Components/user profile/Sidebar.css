@@ -5,9 +5,13 @@
 .side-container{
   width: 20%;
   height: 89vh;
-  position: fixed;
+  /* position: fixed; */
   /* float: right; */
   top: 70px;
+}
+
+.side-bar .Active{
+  background-color: #ccc;
 }
 
   .side{
@@ -46,15 +50,21 @@
   flex-direction: column;
 }
 
+.active{
+background-color: #cccccc3a;
+}
+
+
+
 @media (max-width: 868px){
   .side-container{
     width: 10%;
-    position: absolute;
+    position: fixed;
     z-index: 2002;
-    height: 89vh;
+    /* height: 89vh; */
   }
   .side-bar{
-    height: 89vh;
+    height: 100vh;
     top: 70px;
   }
   .side{
