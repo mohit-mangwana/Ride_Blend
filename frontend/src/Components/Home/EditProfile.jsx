@@ -5,6 +5,7 @@ import UserSideBar from '../user profile/UserSideBar';
 import './EditProfile.css'
 import Validation from '../Validations/EditValidation';
 import { Link } from 'react-router-dom';
+import { APIurl } from '../utils/utils';
 
 export default function EditProfile() {
   const [userData, setUserData] = useState(null);
@@ -20,7 +21,7 @@ export default function EditProfile() {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get("/auth/user", {
+        const response = await axios.get(`${APIurl}/auth/user`, {
           withCredentials: true,
         });
         setUserData(response.data);

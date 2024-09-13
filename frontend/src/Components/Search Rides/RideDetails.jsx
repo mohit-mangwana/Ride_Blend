@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Footer from "../Home Component/Footer.jsx";
+import { APIurl } from "../utils/utils.jsx";
 
 const RideDetails = () => {
   const { rideId } = useParams();
@@ -18,7 +19,7 @@ const RideDetails = () => {
     const fetchRideDetails = async () => {
       try {
         const response = await axios.get(
-          `/ride/ride-detail/${rideId}`
+          `${APIurl}/ride/ride-detail/${rideId}`
         );  
         setRide(response.data);
       } catch (error) {

@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {handleLogin} from '../../Components/utils/handleLogin.jsx';
 import Cookies from 'js-cookie'
+import { APIurl } from "../../Components/utils/utils.jsx";
 
 
 
@@ -36,7 +37,7 @@ function Login() {
       try {
         // If there are no errors
         // Call the login API
-        const response = await Axios.post("/admin/adminlogin", {
+        const response = await Axios.post(`${APIurl}/admin/adminlogin`, {
           email,
           password,
         });

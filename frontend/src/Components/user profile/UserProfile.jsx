@@ -12,6 +12,9 @@ import {
   faDog,
 } from "@fortawesome/free-solid-svg-icons";
 import { Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Button, Box, TextField } from '@mui/material';
+import { APIurl } from "../utils/utils";
+
+
 export default function UserProfile() {
   const [isFormVisible, setFormVisible] = useState(false);
   const [userData, setUserData] = useState(null);
@@ -83,7 +86,7 @@ export default function UserProfile() {
 
   const fetchUserDetails = async () => {
     try {
-      const response = await axios.get(`/auth/user`, {
+      const response = await axios.get(`${APIurl}/auth/user`, {
         withCredentials: true,
       });
       setUserData(response.data);
@@ -119,7 +122,7 @@ export default function UserProfile() {
   const addBio = async () => {
     try {
       await axios.post(
-        "/auth/bio",
+        `${APIurl}/auth/bio`,
         { bio },
         { withCredentials: true }
       );
@@ -134,7 +137,7 @@ export default function UserProfile() {
   const updateBio = async () => {
     try {
       await axios.post(
-        "/auth/bio",
+        `${APIurl}/auth/bio`,
         { bio },
         { withCredentials: true }
       );
@@ -148,7 +151,7 @@ export default function UserProfile() {
   const updateTravelPreferences = async () => {
     try {
       await axios.post(
-        '/auth/travel-preferences',
+        `${APIurl}/auth/travel-preferences`,
         { preferences: selectedPreferences },
         { withCredentials: true }
       );
@@ -284,7 +287,7 @@ export default function UserProfile() {
 
   const fetchTravelPreferences = async () => {
     try {
-      const response = await axios.get('/auth/travel-preferences', { withCredentials: true });
+      const response = await axios.get(`${APIurl}/auth/travel-preferences`, { withCredentials: true });
       setTravelPreferences(response.data.preferences);
       setSelectedPreferences(response.data.selectedPreferences);
     } catch (error) {
@@ -300,10 +303,10 @@ export default function UserProfile() {
   const handleSubmitVehicle = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/auth/vehicle", vehicleData, {
+      await axios.post(`${APIurl}/auth/vehicle`, vehicleData, {
         withCredentials: true,
       });
-      const response = await axios.get("/auth/user", {
+      const response = await axios.get(`${APIurl}/auth/user`, {
         withCredentials: true,
       });
       setUserData(response.data);

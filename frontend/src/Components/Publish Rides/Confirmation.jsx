@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { RideContext } from '../utils/RideProvider';
 import Axios from 'axios'; // Assuming you're using Axios for HTTP requests
 import { toast } from "react-hot-toast"; // Assuming you're using react-toastify for notifications
+import { APIurl } from '../utils/utils';
 
 const Confirmation = () => {
   const { rideDetails } = useContext(RideContext);
@@ -26,7 +27,7 @@ const Confirmation = () => {
       }
 
       // Publish outbound and return rides
-      await Axios.post("/ride/publishride", requestBody);
+      await Axios.post(`${APIurl}/ride/publishride`, requestBody);
 
       toast.success("Rides published successfully");
       navigate('/offerseat/published',

@@ -4,8 +4,11 @@ import { useParams, useLocation } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import io from 'socket.io-client';
 import './Chat.css';
+import { APIurl } from '../utils/utils';
 
-const socket = io(process.env.SOCKET_URL);
+
+const socket = io(process.env.REACT_APP_SOCKET_URL);
+
 
 const Chat = () => {
   const { rideId } = useParams();
@@ -24,7 +27,7 @@ const Chat = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await axios.get(`/message/ride/${rideId}/messages?page=${page}`, {
+        const response = await axios.get(`${APIurl}/message/ride/${rideId}/messages?page=${page}`, {
           withCredentials: true
         });
         setMessages(prevMessages => [...response.data.messages, ...prevMessages]);
@@ -38,7 +41,7 @@ const Chat = () => {
 
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get(`/auth/user`, {
+        const response = await axios.get(`${APIurl}/auth/user`, {
           withCredentials: true,
         });
         setCurrentUser(response.data.name);

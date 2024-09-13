@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios';
+import { APIurl } from '../../Components/utils/utils';
 
 
 export default function AdminRides() {
@@ -9,7 +10,7 @@ export default function AdminRides() {
     const fetchAllRides = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/admin/getRides"
+          `${APIurl}/admin/getRides`
         );
         setRides(response.data.rides);
         

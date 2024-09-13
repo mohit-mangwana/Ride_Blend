@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {handleLogin} from '../utils/handleLogin'
 import Cookies from 'js-cookie'
+import { APIurl } from "../utils/utils";
 
 
 
@@ -35,7 +36,7 @@ function Login() {
       try {
         // If there are no errors
         // Call the login AP
-        const response = await Axios.post("/auth/login", {
+        const response = await Axios.post(`${APIurl}/auth/login`, {
           
           email,
           password,
@@ -51,7 +52,7 @@ function Login() {
           // console.log(token)
           // localStorage.setItem('isLoggedIn', 'true');
 
-          const notificationsResponse = await Axios.get('/notification/getnotifications', {
+          const notificationsResponse = await Axios.get(`${APIurl}/notification/getnotifications`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           const notifications = notificationsResponse.data;
@@ -65,7 +66,8 @@ function Login() {
         if (err.response.status === 404) {
           toast.error(err.response.data.error);
         } else {
-          toast.error("Something went wrong");
+          toast.error("Something is nowent wrong");
+          console.log(err)
         }
       }
     } else {

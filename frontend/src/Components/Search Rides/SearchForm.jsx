@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { APIurl } from "../utils/utils";
 
 export default function Search() {
   const [isButtonvisible, setButtonvisible] = useState(false);
@@ -54,8 +55,7 @@ export default function Search() {
         toast.error("Please fill in all fields");
         return;
       }
-      const response = await axios.get(
-        "/ride/rides/search",
+      const response = await axios.get(`${APIurl}/ride/rides/search`,
         {
         params:{
             pickupAddress,

@@ -5,6 +5,7 @@ import axios from 'axios';
 import './Userinfo.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Footer from '../Home Component/Footer.jsx'
+import { APIurl } from '../utils/utils.jsx';
 
 
 const UserInfo = () => {
@@ -14,7 +15,7 @@ const UserInfo = () => {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await axios.get(`/auth/info/${userId}`);
+        const response = await axios.get(`${APIurl}/auth/info/${userId}`);
         setUser(response.data);
       } catch (error) {
         console.error('Error fetching user info:', error);

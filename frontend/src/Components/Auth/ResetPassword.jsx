@@ -4,6 +4,7 @@ import "./email.css";
 import { useState } from "react";
 import Axios from "axios";
 import { toast } from "react-hot-toast";
+import { APIurl } from '../utils/utils';
 
 
 export default function ResetPassword() {
@@ -15,7 +16,7 @@ export default function ResetPassword() {
     event.preventDefault();
 
     
-      Axios.post("/auth/resetpassword/"+ token, {
+      Axios.post(`${APIurl}/auth/resetpassword/`+ token, {
         password,
       })
         .then((res) => {

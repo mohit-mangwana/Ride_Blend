@@ -6,6 +6,7 @@ import io from 'socket.io-client';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import './CheckOut.css';
+import { APIurl } from '../utils/utils'; 
 
 const socket = io(process.env.SOCKET_URL);
 
@@ -19,7 +20,7 @@ const Checkout = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get('/auth/user', {
+        const response = await axios.get(`${APIurl}/auth/user`, {
           withCredentials: true,
         });
         setCurrentUser(response.data.name);
@@ -55,7 +56,7 @@ const Checkout = () => {
   const handleBookRide = async () => {
     try {
       const response = await axios.post(
-        '/bookride/booking',
+        `${APIurl}/bookride/booking`,
         {
           rideId: rideId,
           seatsBooked: passengers,

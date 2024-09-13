@@ -93,7 +93,7 @@ export const login = async (req, res) => {
 
     const validPassword = await bcrypt.compare(password, existingUser.password);
     if (!validPassword) {
-      return res.status(404).json({ error: "Password incorrect" });
+      return res.status(404).json({status:'404', error: "Password incorrect" });
     }
   
     const token = jwt.sign({ email: existingUser.email }, process.env.JWT_SECRET, {
