@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { APIurl } from "../../Components/utils/utils";
 
 export default function BookedRides() {
   const [bookings, setBookings] = useState([]);
@@ -8,7 +9,7 @@ export default function BookedRides() {
     const fetchAllBookings = async () => {
       try {
         const response = await axios.get(
-          "/admin/getBookings"
+          `${APIurl}/admin/getBookings`
         );
         setBookings(response.data);
       } catch (error) {

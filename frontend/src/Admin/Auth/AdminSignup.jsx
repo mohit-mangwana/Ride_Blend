@@ -4,6 +4,7 @@ import Validation from "../../Components/Validations/SignupValidation.jsx";
 import Axios from "axios";
 import { toast } from "react-hot-toast";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { APIurl } from "../../Components/utils/utils.jsx";
 
 
 function Register() {
@@ -32,7 +33,7 @@ function Register() {
       try {
         // If there are no errors
         // Call the signup API
-        const response = await Axios.post("http://localhost:4000/auth/signup", {
+        const response = await Axios.post(`${APIurl}/auth/signup`, {
           name,
           email,
           password,

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dialog, DialogActions, DialogContent, DialogTitle, Button, TextField, Typography, Box } from "@mui/material";
 import toast from "react-hot-toast";
 import "./UserRides.css";
+import { APIurl } from "../utils/utils";
 
 // Utility function to extract city name from address
 const extractCityName = (address) => {
@@ -67,7 +68,7 @@ const UserProfile = () => {
 
   const fetchUserRides = async () => {
     try {
-      const response = await axios.get("/ride/user/rides", {
+      const response = await axios.get(`${APIurl}/ride/user/rides`, {
         withCredentials: true,
       });
       setRides(response.data);

@@ -5,6 +5,7 @@ import Validation from "../Validations/SignupValidation";
 import Axios from "axios";
 import { toast } from "react-hot-toast";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { APIurl } from "../utils/utils";
 
 function Register() {
   const [name, setName] = useState("");
@@ -41,7 +42,7 @@ function Register() {
         // Log the data being sent
         console.log("Sending data:", { name, email, password, phoneNumber, role: 'user', travelPreferences });
 
-        const response = await Axios.post("/auth/signup", {
+        const response = await Axios.post(`${APIurl}/auth/signup`, {
           name,
           email,
           password,

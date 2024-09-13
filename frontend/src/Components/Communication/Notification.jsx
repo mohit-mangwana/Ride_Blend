@@ -3,6 +3,7 @@ import axios from 'axios';
 import io from 'socket.io-client';
 import './Notification.css'; // Make sure to create this CSS file
 import UserSideBar from '../user profile/UserSideBar';
+import { APIurl } from '../utils/utils';
 
 const socket = io(process.env.SOCKET_URL); // Adjust the URL if different
 
@@ -12,7 +13,7 @@ const Notifications = () => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get('/notification/getnotifications', { withCredentials: true });
+        const response = await axios.get(`${APIurl}/notification/getnotifications`, { withCredentials: true });
         setNotifications(response.data);
     
       } catch (error) {

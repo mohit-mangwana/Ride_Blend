@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import './Inbox.css';
 import UserSideBar from "../user profile/UserSideBar";
+import { APIurl } from "../utils/utils";
 
 const Inbox = () => {
   const [chats, setChats] = useState([]);
@@ -17,8 +18,8 @@ const Inbox = () => {
       try {
         setLoading(true);
         const [chatsResponse, userResponse] = await Promise.all([
-          axios.get("/api/chats", { withCredentials: true }),
-          axios.get("/auth/user", { withCredentials: true })
+          axios.get(`${APIurl}/api/chats`, { withCredentials: true }),
+          axios.get(`${APIurl}/auth/user`, { withCredentials: true })
         ]);
           setChats(chatsResponse.data);
         setCurrentUser(userResponse.data.name);

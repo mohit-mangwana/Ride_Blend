@@ -3,6 +3,7 @@ import axios from 'axios';
 import { toast } from "react-hot-toast";
 import './RideBookings.css'
 import UserSideBar from './UserSideBar';
+import { APIurl } from '../utils/utils';
 
 const RideBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -10,7 +11,7 @@ const RideBookings = () => {
 
   const confirmBooking = async (bookingId) => {
     try {
-      await axios.post(`/bookride/${bookingId}/confirm`, {}, {
+      await axios.post(`${APIurl}/bookride/${bookingId}/confirm`, {}, {
         withCredentials: true
       });
       setBookings(bookings.map(booking =>
@@ -25,7 +26,7 @@ const RideBookings = () => {
   
   const declineBooking = async (bookingId) => {
     try {
-      await axios.post(`/bookride/${bookingId}/decline`);
+      await axios.post(`${APIurl}/bookride/${bookingId}/decline`);
       setBookings(bookings.map(booking =>
         booking._id === bookingId ? { ...booking, status: 'declined' } : booking
       ));
@@ -39,7 +40,7 @@ const RideBookings = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get('/bookride/bookings', { withCredentials: true });
+        const response = await axios.get(`${APIurl}/bookride/bookings`, { withCredentials: true });
         if (Array.isArray(response.data)) {
           setBookings(response.data);
           console.log(response.data);

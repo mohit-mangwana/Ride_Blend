@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import UserSideBar from "./UserSideBar";
 import toast from "react-hot-toast";
+import { APIurl } from "../utils/utils";
 
 const BookedRidesPage = () => {
   const [bookedRides, setBookedRides] = useState([]);
@@ -14,8 +15,7 @@ const BookedRidesPage = () => {
 
   const fetchBookedRides = async () => {
     try {
-      const response = await axios.get(
-        "/bookride/bookedrides",
+      const response = await axios.get(`${APIurl}/bookride/bookedrides`,
         {}
       );
       

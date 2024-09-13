@@ -4,6 +4,7 @@ import Axios from 'axios';
 import { toast } from 'react-hot-toast';
 import Validation from '../Validations/Forgotpassword'; // Assuming this is the correct path for your validation function
 import './email.css';
+import { APIurl } from '../utils/utils';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState(" ");
@@ -15,7 +16,7 @@ export default function ForgotPassword() {
     const validationErrors = Validation(email); // Renamed errors variable to avoid shadowing
     if (Object.keys(validationErrors).length === 0) {
       try {
-        const response = await Axios.post('/auth/forgotpassword', {
+        const response = await Axios.post(`${APIurl}/auth/forgotpassword`, {
           email,
         });
         toast.success(response.data.message);

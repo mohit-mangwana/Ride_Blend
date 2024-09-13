@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Sidebar.css";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { APIurl } from "../utils/utils";
 
 export default function UserSideBar({ isSidebarVisible, setIsSidebarVisible, toggleButtonRef }) {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export default function UserSideBar({ isSidebarVisible, setIsSidebarVisible, tog
   const handleLogout = async () => {
     axios.defaults.withCredentials = true;
     try {
-      await axios.post("/auth/logout", {
+      await axios.post(`${APIurl}/auth/logout`, {
         withCredentials: true,
       });
       window.dispatchEvent(new Event("loginStateChange"));

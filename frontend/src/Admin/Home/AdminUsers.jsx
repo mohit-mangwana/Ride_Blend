@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { APIurl } from "../../Components/utils/utils";
 
 const AdminUser = () => {
   const [users, setUsers] = useState([]);
@@ -10,7 +11,7 @@ const AdminUser = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/admin/getUsers"
+          `${APIurl}/admin/getUsers`
         );
         const filteredUsers = response.data.filter(user => user.role !== 'admin');
         setUsers(filteredUsers);

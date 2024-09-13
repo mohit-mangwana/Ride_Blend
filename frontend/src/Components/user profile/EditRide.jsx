@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 // import './EditRide.css'; // Add your styling here
+import { APIurl } from "../utils/utils";
 
 const EditRide = () => {
   const { rideId } = useParams();
@@ -17,7 +18,7 @@ const EditRide = () => {
   useEffect(() => {
     const fetchRide = async () => {
       try {
-        const response = await axios.get(`/ride/${rideId}`, {
+        const response = await axios.get(`${APIurl}/ride/${rideId}`, {
           withCredentials: true,
         });
         const fetchedRide = response.data;
