@@ -99,7 +99,14 @@ export const login = async (req, res) => {
     const token = jwt.sign({ email: existingUser.email }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    res.cookie("token", token, { httpOnly: true, maxAge: 3600000 });
+    // Set the JWT token in cookies with proper cross-domain settings
+    res.cookie('token', token, {
+      httpOnly: true,                       // Prevent client-side JS from accessing the cookie
+      secure: true,                         // Send only over HTTPS
+      sameSite: 'None',                     // Required for cross-origin cookies
+      domain: 'ride-blend-backend.onrender.com', // Backend domain
+      maxAge: 3600000                       // Expires in 1 hour (1 hour = 3600000 ms)
+    });
 
     // Create a notification
     const notification = new Notification({
