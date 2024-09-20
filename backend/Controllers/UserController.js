@@ -104,7 +104,6 @@ export const login = async (req, res) => {
       httpOnly: true,                       // Prevent client-side JS from accessing the cookie
       secure: true,                         // Send only over HTTPS
       sameSite: 'None',                     // Required for cross-origin cookies
-      domain: 'ride-blend-backend.onrender.com', // Backend domain
       maxAge: 3600000                       // Expires in 1 hour (1 hour = 3600000 ms)
     });
 

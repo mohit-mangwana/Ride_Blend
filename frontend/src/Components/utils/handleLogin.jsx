@@ -9,7 +9,6 @@ export function handleLogin(token,role) {
     Cookies.set('token', token, {
       expires: 1 / 24,               // Token expires in 1 hour
       path: '/',                     // Path for the cookie
-      domain: 'ride-blend-frontend.onrender.com', // Frontend domain
       secure: true,                  // Ensure it is sent over HTTPS
       sameSite: 'None'               // Allow cross-origin cookie
     });
