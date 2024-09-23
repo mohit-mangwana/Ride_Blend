@@ -52,10 +52,10 @@ function Login() {
           // console.log(token)
           // localStorage.setItem('isLoggedIn', 'true');
 
-          const notificationsResponse = await Axios.get(`${APIurl}/notification/getnotifications`, {
-            headers: { Authorization: `Bearer ${token}` }
-          });
-          const notifications = notificationsResponse.data;
+          // const notificationsResponse = await Axios.get(`${APIurl}/notification/getnotifications`, {
+          //   headers: { Authorization: `Bearer ${token}` }
+          // });
+          // const notifications = notificationsResponse.data;
           // toast.success(notifications.message)
           navigate('/')
 
