@@ -5,6 +5,8 @@ import  jwt from 'jsonwebtoken';
 export const verifyToken = (req, res, next) => {
   const token = req.cookies.token; // Assuming the token is stored in a cookie named 'token'
 
+  console.log(token);
+
   if (!token) {
     return res.status(401).json({ error: 'No token provided' });
   }
